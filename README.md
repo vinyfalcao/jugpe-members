@@ -1,4 +1,4 @@
-# members project
+# JUG-PE Members API
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
