@@ -5,9 +5,11 @@ import br.com.jugpe.models.Member;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.Collection;
 
-@Path("/members")@Produces(MediaType.APPLICATION_JSON)
+@Path("/members")
+@Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class MembersResource {
 
@@ -19,9 +21,9 @@ public class MembersResource {
 
     @Transactional
     @POST
-    public Member add(Member member){
+    public Response add(Member member){
         member.persist();
-        return member;
+        return Response.status(Response.Status.CREATED).entity(member).build();
     }
 
 }
